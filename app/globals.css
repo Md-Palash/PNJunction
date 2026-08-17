@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==================================================================
+   PNJUNCTION DESIGN TOKENS
+   Centralized source of truth for color, elevation and motion.
+   Every future component must consume these variables — never
+   hardcode raw hex values or shadow strings in component files.
+   ================================================================== */
+
+:root {
+  /* ---------- Surfaces ---------- */
+  --color-bg: #fcfcfa; /* soft milky-white page background */
+  --color-surface: #ffffff; /* card surface */
+  --color-surface-muted: #f6f5f1; /* secondary/alternating section surface */
+  --color-surface-sunken: #f1efe9; /* inset surfaces, code blocks, wells */
+
+  /* ---------- Brand: Deep Navy ---------- */
+  --color-navy: #0b1733;
+  --color-navy-50: #f3f5f9;
+  --color-navy-100: #e3e7f0;
+  --color-navy-200: #c3cadd;
+  --color-navy-300: #99a4c2;
+  --color-navy-400: #6b7aa3;
+  --color-navy-500: #4a5a85;
+  --color-navy-600: #34426b;
+  --color-navy-700: #232f52;
+  --color-navy-800: #151f3d;
+  --color-navy-900: #0b1733;
+
+  /* ---------- Accent: Technology Blue ---------- */
+  --color-accent: #2563eb;
+  --color-accent-50: #eff4ff;
+  --color-accent-100: #dbe6fe;
+  --color-accent-400: #4c85f5;
+  --color-accent-500: #2563eb;
+  --color-accent-600: #1d4fc4;
+  --color-accent-700: #1a3f9c;
+
+  /* ---------- Text ---------- */
+  --color-text-primary: #0f1b33;
+  --color-text-secondary: #545f7a;
+  --color-text-muted: #8991a8;
+  --color-text-inverse: #fcfcfa;
+
+  /* ---------- Borders ---------- */
+  --color-border: #e8e5dd;
+  --color-border-strong: #d7d3c7;
+  --color-border-subtle: #efeee8;
+
+  /* ---------- Status ---------- */
+  --color-success: #1f9c66;
+  --color-warning: #c2872b;
+  --color-danger: #d9463e;
+
+  /* ---------- Topic accent system ----------
+     Soft, desaturated, sophisticated — never large blocks of neon. */
+  --color-topic-ai: #7c6fe0;
+  --color-topic-ai-soft: #f2effc;
+
+  --color-topic-windows: #3b82f6;
+  --color-topic-windows-soft: #eaf2ff;
+
+  --color-topic-android: #22a559;
+  --color-topic-android-soft: #e9f7ef;
+
+  --color-topic-webdev: #0ea5b7;
+  --color-topic-webdev-soft: #e6f7f9;
+
+  --color-topic-linux: #c2872b;
+  --color-topic-linux-soft: #fbf1e1;
+
+  --color-topic-security: #5b5fcf;
+  --color-topic-security-soft: #eeeefb;
+
+  --color-topic-hardware: #e0722e;
+  --color-topic-hardware-soft: #fceee2;
+
+  --color-topic-productivity: #1f9c87;
+  --color-topic-productivity-soft: #e5f6f2;
+
+  /* ---------- Elevation system ----------
+     Soft, layered, navy-tinted shadows. Never pure black. */
+  --shadow-elevation-1: 0 1px 2px rgba(11, 23, 51, 0.04),
+    0 1px 1px rgba(11, 23, 51, 0.03);
+  --shadow-elevation-2: 0 6px 16px rgba(11, 23, 51, 0.07),
+    0 2px 5px rgba(11, 23, 51, 0.05);
+  --shadow-elevation-3: 0 16px 32px rgba(11, 23, 51, 0.11),
+    0 6px 12px rgba(11, 23, 51, 0.06);
+
+  /* ---------- Motion ---------- */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==================================================================
+   BASE
+   ================================================================== */
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Accessible, visible focus states everywhere — never suppressed. */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent-500);
+  border-radius: 6px;
+}
+
+::selection {
+  background-color: var(--color-accent-100);
+  color: var(--color-navy-900);
+}
+
+/* Custom scrollbar — subtle, on-brand */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-navy-200);
+  border-radius: 999px;
+  border: 2px solid var(--color-bg);
+}
+
+/* ==================================================================
+   REDUCED MOTION
+   Anything animated must degrade to a simple, instant or fade-only
+   state when the user prefers reduced motion.
+   ================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utility: reveal-on-scroll base state, toggled by AnimatedSection */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--duration-slow) var(--ease-premium),
+    transform var(--duration-slow) var(--ease-premium);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
