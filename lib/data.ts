@@ -25,8 +25,11 @@ export const topics: Topic[] = [
   { slug: "productivity", name: "Productivity", tagline: "Work smarter, not harder." },
 ];
 
+export type ContentType = "Article" | "News" | "Guide";
+
 export interface LatestItem {
   topic: TopicSlug;
+  contentType: ContentType;
   title: string;
   readTime: string;
   date: string;
@@ -35,36 +38,42 @@ export interface LatestItem {
 export const latestItems: LatestItem[] = [
   {
     topic: "ai",
+    contentType: "Article",
     title: "How AI Agents Actually Work",
     readTime: "6 min read",
     date: "Aug 2026",
   },
   {
     topic: "security",
+    contentType: "News",
     title: "Passkeys Explained: The End of Passwords?",
     readTime: "5 min read",
     date: "Aug 2026",
   },
   {
     topic: "web-dev",
+    contentType: "Guide",
     title: "Server Components, Simplified",
     readTime: "7 min read",
     date: "Jul 2026",
   },
   {
     topic: "hardware",
+    contentType: "Article",
     title: "What Actually Matters When Buying a Laptop",
     readTime: "4 min read",
     date: "Jul 2026",
   },
   {
     topic: "linux",
+    contentType: "Guide",
     title: "Your First Week With a Linux Desktop",
     readTime: "8 min read",
     date: "Jul 2026",
   },
   {
     topic: "productivity",
+    contentType: "Article",
     title: "Building a Second Brain That Actually Works",
     readTime: "6 min read",
     date: "Jun 2026",

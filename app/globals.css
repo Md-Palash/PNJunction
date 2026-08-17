@@ -49,7 +49,7 @@
      the recurring motif that ties every surface back to the PNJunction
      wordmark without shouting about it. */
   .junction-card {
-    @apply relative bg-surface rounded-card border border-border shadow-card-idle;
+    @apply relative overflow-hidden bg-surface rounded-card-md border border-border shadow-card-idle;
     transition: transform 0.35s theme("transitionTimingFunction.junction"),
       box-shadow 0.35s theme("transitionTimingFunction.junction"),
       border-color 0.35s theme("transitionTimingFunction.junction");
@@ -59,7 +59,21 @@
   .junction-card--interactive:hover,
   .junction-card--interactive:focus-within {
     @apply shadow-card-hover border-border-strong;
-    transform: translateY(-4px) scale(1.012);
+    transform: translateY(-5px) scale(1.01);
+  }
+
+  /* Image inside a card: subtle, consistent zoom on hover — never a heavy
+     dark overlay, never blur. */
+  .junction-card-image {
+    @apply overflow-hidden;
+  }
+  .junction-card-image img,
+  .junction-card-image > div {
+    transition: transform 0.5s theme("transitionTimingFunction.junction");
+  }
+  .junction-card--interactive:hover .junction-card-image img,
+  .junction-card--interactive:hover .junction-card-image > div {
+    transform: scale(1.02);
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -35,8 +35,8 @@ export function Navbar() {
       className={cn(
         "sticky top-0 z-50 border-b transition-all duration-300 ease-junction",
         scrolled
-          ? "border-border bg-white/85 shadow-nav backdrop-blur-md"
-          : "border-transparent bg-white/60 backdrop-blur-sm"
+          ? "border-border bg-bg/85 shadow-nav backdrop-blur-md"
+          : "border-transparent bg-bg/60 backdrop-blur-sm"
       )}
     >
       <div className="container-wide section-pad flex h-16 items-center justify-between sm:h-18">
@@ -90,7 +90,7 @@ export function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             aria-label="Mobile"
-            className="overflow-hidden border-t border-border bg-white md:hidden"
+            className="overflow-hidden border-t border-border bg-bg md:hidden"
           >
             <div className="section-pad flex flex-col gap-1 py-3">
               {navLinks.map((link) => (

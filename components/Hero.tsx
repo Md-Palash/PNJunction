@@ -8,7 +8,7 @@ import { fadeUp, staggerContainer } from "@/lib/motion";
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-grid-faint [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,black,transparent)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_65%_15%,rgba(37,99,235,0.06),transparent)]" />
       <div className="container-wide section-pad relative grid items-center gap-10 pb-16 pt-10 sm:pb-20 sm:pt-14 lg:grid-cols-2 lg:gap-6 lg:pb-28 lg:pt-16">
         <motion.div
           variants={staggerContainer(0.12)}

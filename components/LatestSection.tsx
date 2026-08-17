@@ -9,7 +9,7 @@ import { staggerContainer, viewportOnce } from "@/lib/motion";
 
 export function LatestSection() {
   return (
-    <section id="latest" className="section-pad py-16 sm:py-20">
+    <section id="latest" className="section-pad py-16 sm:py-20 lg:py-28">
       <div className="container-wide">
         <SectionHeader
           eyebrow="Latest"
@@ -25,7 +25,7 @@ export function LatestSection() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-8 grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-2 lg:gap-7"
         >
           {latestItems.map((item) => (
             <ContentCard key={item.title} item={item} />

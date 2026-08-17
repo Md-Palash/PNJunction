@@ -9,23 +9,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#FFFFFF",
-        "bg-secondary": "#F7F9FC",
+        bg: "#FCFCFA",
+        "bg-secondary": "#F7F8F7",
         surface: "#FFFFFF",
         ink: {
           DEFAULT: "#0B1733",
-          soft: "#64748B",
-          faint: "#94A3B8",
+          soft: "#5B6577",
+          faint: "#8B93A3",
         },
         border: {
-          DEFAULT: "#E7EBF3",
-          strong: "#DCE3EF",
+          DEFAULT: "#EAEAE6",
+          strong: "#DEDFDA",
         },
         accent: {
-          DEFAULT: "#2F6FED",
-          deep: "#1B4FC4",
-          soft: "#EAF1FF",
-          faint: "#F4F8FF",
+          DEFAULT: "#2563EB",
+          deep: "#1D4FC4",
+          soft: "#EAF2FF",
+          faint: "#F5F9FF",
         },
       },
       fontFamily: {
@@ -33,21 +33,27 @@ const config: Config = {
         body: ["var(--font-body)", "sans-serif"],
       },
       borderRadius: {
+        "card-lg": "24px",
+        "card-md": "20px",
+        "card-sm": "16px",
         card: "20px",
         pill: "999px",
       },
       boxShadow: {
+        /* Soft, low-key resting shadow — a card gently sitting above the
+           milky-white page, never a "floating" or heavy drop shadow. */
         "card-idle":
-          "0 1px 2px rgba(11, 23, 51, 0.04), 0 8px 20px -8px rgba(11, 23, 51, 0.10), inset 0 1px 0 rgba(255,255,255,0.6)",
+          "0 1px 1px rgba(11, 23, 51, 0.03), 0 6px 16px -10px rgba(11, 23, 51, 0.10)",
         "card-hover":
-          "0 2px 4px rgba(11, 23, 51, 0.06), 0 20px 40px -12px rgba(11, 23, 51, 0.18), inset 0 1px 0 rgba(255,255,255,0.7)",
+          "0 2px 3px rgba(11, 23, 51, 0.05), 0 14px 28px -12px rgba(11, 23, 51, 0.16)",
         "card-flat":
-          "0 1px 2px rgba(11, 23, 51, 0.04), 0 4px 10px -6px rgba(11, 23, 51, 0.08)",
-        nav: "0 1px 0 rgba(11, 23, 51, 0.04), 0 8px 24px -12px rgba(11, 23, 51, 0.10)",
+          "0 1px 1px rgba(11, 23, 51, 0.03), 0 3px 8px -5px rgba(11, 23, 51, 0.08)",
+        nav: "0 1px 0 rgba(11, 23, 51, 0.04), 0 6px 18px -12px rgba(11, 23, 51, 0.08)",
       },
       spacing: {
         18: "4.5rem",
         22: "5.5rem",
+        30: "7.5rem",
       },
       keyframes: {
         "pulse-soft": {

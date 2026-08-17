@@ -12,7 +12,7 @@ export function TopicGrid() {
       initial="hidden"
       whileInView="show"
       viewport={viewportOnce}
-      className="grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-4"
+      className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 md:grid-cols-3 lg:grid-cols-4 lg:gap-7"
     >
       {topics.map((topic) => (
         <TopicCard key={topic.slug} topic={topic} />

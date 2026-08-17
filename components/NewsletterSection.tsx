@@ -11,7 +11,7 @@ export function NewsletterSection() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section id="newsletter" className="section-pad py-16 sm:py-20">
+    <section id="newsletter" className="section-pad py-16 sm:py-20 lg:py-28">
       <div className="container-wide">
         <motion.div
           variants={fadeUp}

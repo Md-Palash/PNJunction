@@ -9,7 +9,7 @@ import { staggerContainer, viewportOnce } from "@/lib/motion";
 
 export function ToolsSection() {
   return (
-    <section id="tools" className="section-pad bg-bg-secondary py-16 sm:py-20">
+    <section id="tools" className="section-pad bg-bg-secondary py-16 sm:py-20 lg:py-28">
       <div className="container-wide">
         <SectionHeader
           eyebrow="Tools"

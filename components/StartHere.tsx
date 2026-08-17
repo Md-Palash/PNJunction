@@ -30,7 +30,7 @@ const steps = [
 
 export function StartHere() {
   return (
-    <section id="start-here" className="section-pad py-16 sm:py-20">
+    <section id="start-here" className="section-pad py-16 sm:py-20 lg:py-28">
       <div className="container-wide">
         <SectionHeader
           eyebrow="Start Here"

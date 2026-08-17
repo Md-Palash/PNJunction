@@ -3,7 +3,7 @@ import { TopicGrid } from "./TopicGrid";
 
 export function TopicsSection() {
   return (
-    <section id="topics" className="section-pad py-16 sm:py-20">
+    <section id="topics" className="section-pad py-16 sm:py-20 lg:py-28">
       <div className="container-wide">
         <SectionHeader
           eyebrow="Topics"
