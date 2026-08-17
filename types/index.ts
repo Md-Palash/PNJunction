@@ -20,9 +20,12 @@ export type TopicSlug =
 export interface Topic {
   slug: TopicSlug;
   name: string;
+  /** Short tagline shown on the topic card, e.g. "Create. Automate. Explore." */
   description: string;
   /** Path to a representative image — populated in a later phase. */
   image?: string;
+  /** Key into lib/tokens.ts topicTokens for accent color + soft wash. */
+  accentColor: TopicSlug;
 }
 
 export interface Article {

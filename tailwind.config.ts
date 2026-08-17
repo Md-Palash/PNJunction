@@ -167,10 +167,15 @@ const config: Config = {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        "node-pulse": {
+          "0%, 100%": { transform: "scale(1)", opacity: "1" },
+          "50%": { transform: "scale(1.12)", opacity: "0.85" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         fade: "fade 0.5s ease-out forwards",
+        "node-pulse": "node-pulse 3.5s ease-in-out infinite",
       },
 
       maxWidth: {

@@ -44,7 +44,7 @@ export function Card({
   ...props
 }: CardProps) {
   const classes = cn(
-    "group relative bg-surface border border-border shadow-elevation-1",
+    "group relative bg-surface border border-border shadow-elevation-1 overflow-hidden",
     radiusClasses[radius],
     paddingClasses[padding],
     interactive &&

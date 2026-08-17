@@ -1,9 +1,21 @@
-# PNJunction — Phase 01: Foundation & Design System
+# PNJunction
 
-This is the foundation only. No homepage sections, articles, tools, or
-admin/backend functionality have been built — by design, per the Phase 01
-brief. What's here is the complete visual system and the reusable
-component primitives every future page will be composed from.
+## Where things stand
+
+The design tokens and reusable primitives from Phase 01 are unchanged and
+still live entirely in code (`tailwind.config.ts`, `app/globals.css`,
+`lib/tokens.ts`) — visitors never see a "design system" page. On top of
+that foundation, the real homepage now exists with exactly three pieces,
+per the current brief:
+
+1. **Navbar** — logo + search affordance only. No invented nav links.
+2. **Hero** — headline, supporting copy, two CTAs, and a signature
+   "junction" graphic (topic-colored nodes converging on a central hub).
+3. **Explore Topics** — an 8-topic, image-led card grid (4×2 desktop,
+   1-column mobile), driven by `lib/data/topics.ts`.
+
+Nothing else (Latest, Tools, Newsletter, About, footer, topic/article
+pages) has been built yet — intentionally, waiting for review.
 
 ## Stack
 
@@ -52,22 +64,29 @@ of reference. It reappears as a quiet ambient motif behind the hero.
 Nothing above should ever be hardcoded again in a component — extend the
 token file instead.
 
-## Components built in this phase
+## Components
 
 `components/ui/`: `Container`, `Section`, `Typography` (Display, H1–H6,
 Body, BodyLarge, Small, Meta, Label), `Button`, `Badge`, `Card` (+
-`CardEyebrow`/`CardTitle`/`CardDescription`/`CardFooter`), `Image`,
-`AnimatedSection`, `Logo`/`LogoMark`.
+`CardEyebrow`/`CardTitle`/`CardDescription`/`CardFooter`), `TopicCard`
+(image-led, placeholder-aware), `HeroGraphic` (the hero's signature
+visual), `Image`, `AnimatedSection`, `Logo`/`LogoMark`.
 
-`components/layout/`: `Navbar` (responsive, sticky, scroll-elevated,
-topic-aware, mobile menu). **No footer** — intentionally excluded per the
-brief; it belongs to a later phase.
+`components/layout/`: `Navbar` — logo + search affordance, sticky,
+scroll-elevated. Intentionally minimal: no Articles/Guides/Tools/About
+links until those pages exist. **No footer** — later phase.
 
-## Content typing
+## Content typing & data
 
-`types/index.ts` defines `Topic`, `Article`, and `Tool` shapes. Nothing
-consumes real content yet — this exists so Phase 02's cards can be built
-against a stable contract instead of ad hoc props.
+`types/index.ts` defines `Topic { slug, name, description, image?,
+accentColor }`, plus `Article`/`Tool` for later phases. `lib/data/topics.ts`
+holds the actual 8-topic content, kept separate from presentation —
+`TopicCard` is the only place that maps a topic to markup.
+
+`Topic.image` is intentionally left `undefined` for now. `TopicCard`
+renders a designed placeholder (soft topic wash + centered mark) instead
+of stock photography — swap in `image` later and the real photo renders
+in the same slot with no component changes.
 
 ## Accessibility & performance checklist
 
@@ -93,6 +112,6 @@ npm run dev
 
 ## Explicitly not built (by design — see brief)
 
-Homepage sections, topic cards, article cards, tools, newsletter, footer,
-admin dashboard, auth, database, CMS, article system. All of these will
-consume the tokens and components above in later phases.
+Latest section, Tools section, Newsletter, About, footer, topic detail
+pages, article pages, admin dashboard, auth, database, CMS. All of these
+will consume the tokens and components above in later phases.
