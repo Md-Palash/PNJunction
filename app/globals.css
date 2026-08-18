@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-page text-ink font-body antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-heading tracking-tight;
+  }
+  a {
+    @apply text-inherit no-underline;
+  }
+}
+
+@layer components {
+  /* ---------- 3D card language: gently lifted from the milky page ---------- */
+  .pn-card {
+    @apply block bg-card border border-borderc;
+    box-shadow:
+      0 1px 2px rgba(11, 23, 51, 0.03),
+      0 12px 28px -18px rgba(11, 23, 51, 0.16);
+    transition:
+      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.4s ease;
+    will-change: transform;
+  }
+  .pn-card:hover {
+    transform: translateY(-5px) scale(1.005);
+    box-shadow:
+      0 4px 8px rgba(11, 23, 51, 0.05),
+      0 26px 44px -20px rgba(37, 99, 235, 0.2);
+    @apply border-[#D8E4FB];
+  }
+  .pn-card:focus-visible {
+    @apply outline outline-2 outline-accent outline-offset-2;
+  }
+
+  /* ---------- Buttons ---------- */
+  .pn-btn {
+    @apply inline-flex items-center gap-2 rounded-full px-5 py-3 text-[14.5px] font-semibold border border-transparent transition-all duration-200;
+  }
+  .pn-btn-primary {
+    @apply bg-ink text-white;
+  }
+  .pn-btn-primary:hover {
+    @apply bg-accentStrong -translate-y-0.5;
+    box-shadow: 0 12px 24px -10px rgba(37, 99, 235, 0.4);
+  }
+  .pn-btn-ghost {
+    @apply bg-card text-ink border-borderc;
+  }
+  .pn-btn-ghost:hover {
+    @apply border-accent text-accentStrong -translate-y-0.5;
+  }
+  .pn-btn-text {
+    @apply bg-transparent text-accentStrong px-1 py-2;
+  }
+  .pn-btn-arrow {
+    @apply transition-transform duration-200;
+  }
+  .pn-btn:hover .pn-btn-arrow {
+    transform: translateX(3px);
+  }
+
+  /* ---------- Badges ---------- */
+  .pn-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-[11.5px] font-bold uppercase tracking-wide;
+  }
+  .pn-badge-strong {
+    @apply bg-accentSoft text-accentStrong;
+  }
+  .pn-badge-soft {
+    @apply bg-surface2 text-inkSoft border border-borderc;
+  }
+
+  /* ---------- Section rhythm ---------- */
+  .pn-section {
+    @apply max-w-content mx-auto px-6 py-16 md:py-24;
+  }
+  .pn-section-tint {
+    @apply bg-surface2 max-w-none;
+  }
+  .pn-section-tint > * {
+    @apply max-w-content mx-auto;
+  }
+}
