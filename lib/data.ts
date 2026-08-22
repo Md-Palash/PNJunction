@@ -6,14 +6,14 @@ export interface Topic {
 }
 
 export const topics: Topic[] = [
-  { id: "ai", name: "AI", tag: "Create. Automate. Explore.", image: "/images/topics/ai.jpg" },
-  { id: "windows", name: "Windows", tag: "Tips, guides & troubleshooting.", image: "/images/topics/windows.jpg" },
-  { id: "android", name: "Android", tag: "Apps, devices & useful tricks.", image: "/images/topics/android.jpg" },
-  { id: "webdev", name: "Web Development", tag: "Code, frameworks & the modern web.", image: "/images/topics/webdev.jpg" },
-  { id: "linux", name: "Linux", tag: "Distros, terminal & open source.", image: "/images/topics/linux.jpg" },
-  { id: "cybersecurity", name: "Cybersecurity", tag: "Stay safe, private & informed.", image: "/images/topics/cybersecurity.jpg" },
-  { id: "hardware", name: "Hardware", tag: "Chips, devices & components.", image: "/images/topics/hardware.jpg" },
-  { id: "productivity", name: "Productivity", tag: "Work smarter, not harder.", image: "/images/topics/productivity.jpg" },
+  { id: "ai", name: "AI", tag: "Create. Automate. Explore.", image: "/images/topics/ai.webp" },
+  { id: "windows", name: "Windows", tag: "Tips, guides & troubleshooting.", image: "/images/topics/windows.webp" },
+  { id: "android", name: "Android", tag: "Apps, devices & useful tricks.", image: "/images/topics/android.webp" },
+  { id: "webdev", name: "Web Development", tag: "Code, frameworks & the modern web.", image: "/images/topics/web-development.webp" },
+  { id: "linux", name: "Linux", tag: "Distros, terminal & open source.", image: "/images/topics/linux.webp" },
+  { id: "cybersecurity", name: "Cybersecurity", tag: "Stay safe, private & informed.", image: "/images/topics/cybersecurity.webp" },
+  { id: "hardware", name: "Hardware", tag: "Chips, devices & components.", image: "/images/topics/hardware.webp" },
+  { id: "productivity", name: "Productivity", tag: "Work smarter, not harder.", image: "/images/topics/productivity.webp" },
 ];
 
 export interface LatestItem {
